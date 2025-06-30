@@ -54,7 +54,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src="/file.svg"
+            src="https://ac4pal.github.io/anijam/file.svg"
             alt="File icon"
             width={16}
             height={16}
@@ -68,7 +68,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src="/window.svg"
+            src="https://ac4pal.github.io/anijam/window.svg"
             alt="Window icon"
             width={16}
             height={16}
