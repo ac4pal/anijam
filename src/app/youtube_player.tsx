@@ -37,7 +37,7 @@ export const AnimPlayerPopUp = React.memo((props: AnimPlayerPopUpProps) => {
 AnimPlayerPopUp.displayName = "Anim Player Popup"
 
 const AnimPlayer =  React.memo((props: AnimPlayerProps) => {
-    return <ReactPlayer onReady={props.onReady} url={`https://www.youtube.com/watch?v=${props.animItem.youtubeId}`}  width={ANIM_WIDTH} height={ANIM_HEIGHT}/>;
+    return <ReactPlayer onReady={props.onReady} src={`https://www.youtube.com/watch?v=${props.animItem.youtubeId}`}  width={ANIM_WIDTH} height={ANIM_HEIGHT}/>;
 })
 
 AnimPlayer.displayName = "Anim Player"

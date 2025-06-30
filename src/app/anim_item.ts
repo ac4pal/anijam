@@ -9,8 +9,7 @@ export type AnimItem = {
     pos: { lat: number, lng: number }
     author: string,
     posterPath: string,
-    videoPath: string,
-    youtubeLink: string,
+    youtubeId: string,
     title: string,
 }
 
@@ -20,8 +19,7 @@ export const animItems: AnimItem[] = [
         pos: { lat: 55.378051, lng: -3.435973 },
         author: "The Mollusc Dimension",
         posterPath: "/thumbnails/",
-        videoPath: "/videos/",
-        youtubeLink: "",
+        youtubeId: "",
         title: "A TINY MESSAGE OF SOLIDARITY",
     },
 
