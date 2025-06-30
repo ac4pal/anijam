@@ -1,0 +1,59 @@
+.leaflet-container {
+    height: 100vh;
+    width: 100wh;
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 10px !important;
+}
+
+.leaflet-popup-scrolled {
+    /* overflow: auto; */
+    border-bottom: none !important;
+    border-top: none !important;
+}
+
+.marker-cluster-small {
+    background: rgba(255, 0, 0, 0.5) !important;
+}
+
+.marker-cluster-small div {
+    background: rgba(255, 0, 0, 0.5) !important;
+}
+
+.marker-cluster-medium {
+    background: rgba(255, 0, 0, 0.5) !important;
+}
+
+.marker-cluster-medium div {
+    background: rgba(255, 0, 0, 0.5) !important;
+}
+
+.marker-cluster-large {
+    background: rgba(255, 0, 0, 0.5) !important;
+}
+
+.marker-cluster-large div {
+    background: rgba(255, 0, 0, 0.5) !important;
+}
+
+.resetButtonContainer {
+    width: 34px;
+    height: 34px;
+    background: #fff;
+}
+
+.resetButton {
+    width: 100%;
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 30pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
