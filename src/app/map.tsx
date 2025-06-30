@@ -75,7 +75,7 @@ const ResetButton = React.memo(() => {
   }, [map])
 
   const onClick = React.useCallback(() => {
-    map.setView(DEFAULT_CENTER, isBrowser ? BROWSER_ZOOM : MOBILE_ZOOM)
+    map.setView(DEFAULT_CENTER, BROWSER_ZOOM)
   }, [map])
 
 
