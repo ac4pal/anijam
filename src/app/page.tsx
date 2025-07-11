@@ -19,17 +19,27 @@ export default function Home() {
   const dimensionsSet = React.useRef(false);
 
   React.useEffect(() => {
+
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    }
+
     if (!dimensionsSet.current && window.innerWidth > 0) {
-      console.log("Set width")
       dimensionsSet.current = true;
       setWidth(window.innerWidth);
       setHeight(window.innerHeight);
     }
+
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+
   }, [])
 
-
-
-  console.log("render page")
 
   const animItems = React.useMemo(() => fetchAnimItems(), [/* your dependencies */]);
 
