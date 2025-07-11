@@ -1,7 +1,9 @@
 'use client'
+import styles from "./page.module.css";
+
 import React from "react";
 import dynamic from "next/dynamic"
-import { animItems } from "./anim_item";
+import { fetchAnimItems } from "./anim_item";
 import { LoadingState } from "./loader";
 
 const LazyMap = dynamic(() => import("./map"), {
@@ -29,8 +31,10 @@ export default function Home() {
 
   console.log("render page")
 
+  const animItems = React.useMemo(() => fetchAnimItems(), [/* your dependencies */]);
+
   return (
-    <main>
+    <main className={styles.mainClass}>
       {dimensionsSet.current === true &&
         <LazyMap animItems={animItems} pageWidth={width} pageHeight={height} />
       }

@@ -11,6 +11,10 @@
     padding: 10px !important;
 }
 
+.leaflet-marker-pane {
+  z-index: 600 !important;
+}
+
 .leaflet-popup-scrolled {
     /* overflow: auto; */
     border-bottom: none !important;
@@ -19,6 +23,10 @@
 
 .marker-cluster-small {
     background: rgba(255, 0, 0, 0.5) !important;
+}
+
+.marker-cluster {
+    z-index: 600 !important;
 }
 
 .marker-cluster-small div {

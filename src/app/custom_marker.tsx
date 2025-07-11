@@ -9,12 +9,14 @@ interface CustomMarkerProps {
   children: React.ReactNode;
 }
 
-export const CustomMarker = React.memo(({position, children}: CustomMarkerProps) => {
-  const customIcon = L.icon({
-    iconUrl: "./pin.svg",
-    iconSize: [30, 30],
-    iconAnchor: [15, 15],
-  });
+const customIcon = L.icon({
+  iconUrl: "./pin.svg",
+  iconSize: [30, 30],
+  iconAnchor: [15, 15],
+});
+
+export const CustomMarker = React.memo(({ position, children }: CustomMarkerProps) => {
+
 
   return (
     <Marker position={position} icon={customIcon} >
