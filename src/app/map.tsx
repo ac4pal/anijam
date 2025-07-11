@@ -2,10 +2,10 @@
 
 import React from "react";
 
-import { useMap, MapContainer, TileLayer, Popup, Marker } from 'react-leaflet'
+import { useMap, MapContainer, TileLayer, Popup } from 'react-leaflet'
 
 
-import L, { LatLngBoundsExpression } from 'leaflet';
+import L from 'leaflet';
 import './map.css';
 import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/styles'
@@ -128,7 +128,7 @@ const MapCluserGroup = React.memo(({ animItems }: { animItems: AnimItem[] }) => 
 
   return (
     <MarkerClusterGroup ref={markerClusterRef} removeOutsideVisibleBounds={true}>
-      {animItems.map((item, index) => {
+      {animItems.map((item) => {
         return (
           <CustomMarker key={`${item.author}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
             <Popup closeButton={false} maxWidth={ANIM_WIDTH} maxHeight={ANIM_HEIGHT}>
@@ -141,3 +141,5 @@ const MapCluserGroup = React.memo(({ animItems }: { animItems: AnimItem[] }) => 
     </MarkerClusterGroup>
   )
 })
+
+MapCluserGroup.displayName = "MapCluserGroup"

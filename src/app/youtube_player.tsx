@@ -20,10 +20,9 @@ export const AnimPlayerPopUp = React.memo((props: AnimPlayerPopUpProps) => {
 
     const [ready, setReady] = React.useState(false);
     const onReady = () => {
-        debugger;
-        console.log("ready")
         setReady(true)
     }
+    console.log(ready)
 
     return (
 
