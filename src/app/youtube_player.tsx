@@ -20,6 +20,8 @@ export const AnimPlayerPopUp = React.memo((props: AnimPlayerPopUpProps) => {
 
     const [ready, setReady] = React.useState(false);
     const onReady = () => {
+        debugger;
+        console.log("ready")
         setReady(true)
     }
 
@@ -28,13 +30,16 @@ export const AnimPlayerPopUp = React.memo((props: AnimPlayerPopUpProps) => {
         <div style={{ position: "relative", width: ANIM_WIDTH, height: ANIM_HEIGHT }}>
             <div className={styles.playerOverlay}>
                 <div className={styles.title}>{props.animItem.title}</div>
-                 <div className={styles.author}>{props.animItem.author}</div>
+                <div className={styles.author}>{props.animItem.author}</div>
             </div>
             <div className={styles.playerContent} style={{ width: ANIM_WIDTH, height: ANIM_HEIGHT }}>
-                {!ready &&
-                    <LoadingState fullScreen={false} />
+
+                {props.animItem.youtubeId.length > 0 &&
+                    <AnimPlayer animItem={props.animItem} onReady={onReady} />
                 }
-                <AnimPlayer animItem={props.animItem} onReady={onReady} />
+
+                <LoadingState fullScreen={false} />
+
             </div>
         </div>
     )
@@ -43,7 +48,9 @@ export const AnimPlayerPopUp = React.memo((props: AnimPlayerPopUpProps) => {
 
 AnimPlayerPopUp.displayName = "Anim Player Popup"
 
+
 const AnimPlayer = React.memo((props: AnimPlayerProps) => {
+    console.log(`https://www.youtube.com/watch?v=${props.animItem.youtubeId}`)
     return <ReactPlayer src={`https://www.youtube.com/watch?v=${props.animItem.youtubeId}`} width={ANIM_WIDTH} height={ANIM_HEIGHT} />;
 })
 

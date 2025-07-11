@@ -70,7 +70,7 @@ export function fetchAnimItems() {
             pos: { lat: 39.0742, lng: 21.8243 },
             author: "Konstantinos Kyriakou",
             posterPath: "/thumbnails/",
-            youtubeId: "",
+            youtubeId: "PSrN99wuSgU",
             title: "The Sun Thief",
         },
         {
