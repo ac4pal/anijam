@@ -4,7 +4,6 @@ import React from "react";
 
 import { useMap, MapContainer, TileLayer, Popup } from 'react-leaflet'
 
-
 import L from 'leaflet';
 import './map.css';
 import 'leaflet/dist/leaflet.css';
@@ -42,7 +41,7 @@ const MapComponent = React.memo((props: MapProps) => {
       minZoom={isBrowser ? ZOOM : ZOOM}
       maxZoom={9}
       scrollWheelZoom={true}
-      style={{ width: "100%", height: "100vh"}}
+      style={{ width: "100%", height: "100vh" }}
     >
 
       <TileLayer
@@ -74,13 +73,14 @@ const ResetButton = React.memo(() => {
     map.setView(DEFAULT_CENTER, ZOOM)
   }, [map])
 
+  const isProd = process.env.NODE_ENV === 'production';
 
   if (ready) {
     return (
       <div className="leaflet-top leaflet-left" style={{ top: 70 }}>
         <div className="leaflet-control leaflet-bar resetButtonContainer">
           <button className="resetButton" onClick={onClick}>
-            <img style={{width: "80%", height: "80%"}}src="/reset.svg" alt="reset" />
+            <img style={{ width: "80%", height: "80%" }} src={isProd ? "/anijam/reset.svg" : "/reset.svg"} alt="reset" />
           </button>
         </div>
       </div>
@@ -93,7 +93,7 @@ const ResetButton = React.memo(() => {
 
 ResetButton.displayName = "Reset Button"
 
-const SetMapBounds = ()  => {
+const SetMapBounds = () => {
   const map = useMap();
 
   React.useEffect(() => {
