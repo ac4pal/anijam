@@ -37,8 +37,8 @@ const MapComponent = React.memo((props: MapProps) => {
     <MapContainer
       center={DEFAULT_CENTER}
       maxBoundsViscosity={1.0}
-      zoom={isBrowser ? ZOOM : ZOOM}
-      minZoom={isBrowser ? ZOOM : ZOOM}
+      zoom={ZOOM}
+      minZoom={ZOOM}
       maxZoom={9}
       scrollWheelZoom={true}
       style={{ width: "100%", height: "100vh" }}
@@ -98,8 +98,8 @@ const SetMapBounds = () => {
 
   React.useEffect(() => {
     const bounds = L.latLngBounds(
-      L.latLng(-60, -180),
-      L.latLng(60, 180)
+      L.latLng(-90, -200),
+      L.latLng(90, 200)
     );
     map.setMaxBounds(bounds);
 
