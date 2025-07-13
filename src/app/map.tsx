@@ -12,7 +12,6 @@ import 'react-leaflet-markercluster/styles'
 import { CustomMarker } from "./custom_marker";
 import { AnimItem } from "./anim_item";
 import MarkerClusterGroup from "react-leaflet-markercluster";
-import { isBrowser } from 'react-device-detect';
 
 import { AnimPlayerPopUp, ANIM_HEIGHT, ANIM_WIDTH } from './youtube_player';
 
