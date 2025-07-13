@@ -133,8 +133,8 @@ const MapCluserGroup = React.memo(({ animItems }: { animItems: AnimItem[] }) => 
       {animItems.map((item) => {
         return (
           <CustomMarker key={`${item.author}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
-            <Popup closeButton={false} maxWidth={ANIM_WIDTH} maxHeight={ANIM_HEIGHT}>
-              <div style={{ width: ANIM_WIDTH, height: ANIM_HEIGHT, overflow: "hidden", borderRadius: 5 }}>
+            <Popup closeButton={false} minWidth={ANIM_WIDTH} maxWidth={ANIM_WIDTH} maxHeight={ANIM_HEIGHT}>
+              <div style={{ width: ANIM_WIDTH , height: ANIM_HEIGHT , overflow: "hidden", borderRadius: 5 }}>
                 <AnimPlayerPopUp animItem={item} />
               </div>
             </Popup>

@@ -73,6 +73,13 @@ export function fetchAnimItems() {
             youtubeId: "PSrN99wuSgU",
             title: "The Sun Thief",
         },
+        {
+            pos: { lat: 29.749907, lng:  -95.358421},
+            author: "Felipe Sanchez",
+            posterPath: "/thumbnails/",
+            youtubeId: "qMfRjaARVp4",
+            title: "KIDS AND ROCKS",
+        },
         // {
         //     pos: { lat: 55.378051, lng: -3.435973 },
         //     author: "The Mollusc Dimension",

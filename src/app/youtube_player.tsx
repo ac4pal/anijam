@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player'
 
 import { AnimItem } from './anim_item';
 import { LoadingState } from './loader';
-export const ANIM_WIDTH = 280;
+export const ANIM_WIDTH = 300;
 export const ANIM_HEIGHT = ANIM_WIDTH * 9 / 16;
 import styles from "./page.module.css";
 
@@ -27,18 +27,18 @@ export const AnimPlayerPopUp = React.memo((props: AnimPlayerPopUpProps) => {
     return (
 
         <div style={{ position: "relative", width: ANIM_WIDTH, height: ANIM_HEIGHT }}>
-            <div className={styles.playerOverlay}>
-                <div className={styles.title}>{props.animItem.title}</div>
-                <div className={styles.author}>{props.animItem.author}</div>
-            </div>
+            {props.animItem.youtubeId.length === 0 &&
+                <div className={styles.playerOverlay}>
+                    <div className={styles.title}>{props.animItem.title}</div>
+                    <div className={styles.author}>{props.animItem.author}</div>
+                </div>
+            }
             <div className={styles.playerContent} style={{ width: ANIM_WIDTH, height: ANIM_HEIGHT }}>
 
                 {props.animItem.youtubeId.length > 0 &&
                     <AnimPlayer animItem={props.animItem} onReady={onReady} />
                 }
-
                 <LoadingState fullScreen={false} />
-
             </div>
         </div>
     )
