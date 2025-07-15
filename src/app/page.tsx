@@ -1,11 +1,12 @@
 'use client'
 import styles from "./page.module.css";
+import { useSearchParams } from 'next/navigation'
 
 import React from "react";
 import dynamic from "next/dynamic"
 import { fetchAnimItems } from "./anim_item";
 import { LoadingState } from "./loader";
-
+import { AnimTable } from "./anim_table";
 const LazyMap = dynamic(() => import("./map"), {
   ssr: false,
   loading: () => <LoadingState fullScreen={true} />,
@@ -18,7 +19,11 @@ export default function Home() {
 
   const dimensionsSet = React.useRef(false);
 
+  const searchParams = useSearchParams()
+  const showTable = searchParams.get('table') === "true"
+
   React.useEffect(() => {
+
 
     const handleResize = () => {
       setWidth(window.innerWidth);
@@ -41,13 +46,19 @@ export default function Home() {
   }, [])
 
 
+
   const animItems = React.useMemo(() => fetchAnimItems(), [/* your dependencies */]);
 
   return (
     <main className={styles.mainClass}>
+      {showTable &&
+        <AnimTable animItems={animItems} />
+      }
+
       {dimensionsSet.current === true &&
         <LazyMap animItems={animItems} pageWidth={width} pageHeight={height} />
       }
+
     </main>
   );
 }

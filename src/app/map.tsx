@@ -23,10 +23,11 @@ export interface MapProps {
   animItems: AnimItem[],
   pageWidth: number,
   pageHeight: number,
+  showTable: boolean,
 }
 
 export default function Map(props: MapProps) {
-  return (<MapComponent animItems={props.animItems} pageWidth={props.pageWidth} pageHeight={props.pageHeight} />)
+  return (<MapComponent showTable={props.showTable} animItems={props.animItems} pageWidth={props.pageWidth} pageHeight={props.pageHeight} />)
 }
 
 
@@ -40,12 +41,17 @@ const MapComponent = React.memo((props: MapProps) => {
       minZoom={ZOOM}
       maxZoom={9}
       scrollWheelZoom={true}
-      style={{ width: "100%", height: "100vh" }}
+      style={{ width: props.showTable ? "60%" : "100%", height: "100vh" }}
     >
 
       <TileLayer
-        attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
         url="https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?api_key=7efc90e5-1fef-4c34-baaf-9a6c4035d667"
+      />
+      <TileLayer
+        attribution='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+
+        url="https://tiles.stadiamaps.com/tiles/stamen_terrain_labels/{z}/{x}/{y}.png?api_key=7efc90e5-1fef-4c34-baaf-9a6c4035d667"
       />
       <SetMapBounds />
       <MapCluserGroup animItems={props.animItems} />
@@ -133,7 +139,7 @@ const MapCluserGroup = React.memo(({ animItems }: { animItems: AnimItem[] }) => 
         return (
           <CustomMarker key={`${item.author}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
             <Popup closeButton={false} minWidth={ANIM_WIDTH} maxWidth={ANIM_WIDTH} maxHeight={ANIM_HEIGHT}>
-              <div style={{ width: ANIM_WIDTH , height: ANIM_HEIGHT , overflow: "hidden", borderRadius: 5 }}>
+              <div style={{ width: ANIM_WIDTH, height: ANIM_HEIGHT, overflow: "hidden", borderRadius: 5 }}>
                 <AnimPlayerPopUp animItem={item} />
               </div>
             </Popup>
