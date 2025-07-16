@@ -34,6 +34,15 @@ export default function Map(props: MapProps) {
 
 const MapComponent = React.memo((props: MapProps) => {
 
+  function selectedMarker(): AnimItem | null {
+    const items = props.animItems.filter(item => item.youtubeId === props.selectedId)
+    if (items.length > 0) {
+      return items[0]
+    }
+    return null;
+  }
+
+
   return (
     <MapContainer
       center={DEFAULT_CENTER}
@@ -55,6 +64,7 @@ const MapComponent = React.memo((props: MapProps) => {
         url="https://tiles.stadiamaps.com/tiles/stamen_terrain_labels/{z}/{x}/{y}.png?api_key=7efc90e5-1fef-4c34-baaf-9a6c4035d667"
       />
       <SetMapBounds />
+      <ZoomToMarker item={selectedMarker()} />
       <MapCluserGroup selectedId={props.selectedId} animItems={props.animItems} />
       <ResetButton />
 
@@ -99,6 +109,28 @@ const ResetButton = React.memo(() => {
 
 ResetButton.displayName = "Reset Button"
 
+const ZoomToMarker = ({ item }: { item: AnimItem | null }) => {
+
+
+  const map = useMap();
+
+  React.useEffect(() => {
+
+    if (!item) {
+      return
+    }
+    const bounds = L.latLngBounds(
+      L.latLng(item.pos.lat - 2, item.pos.lng - 2),
+      L.latLng(item.pos.lat + 2, item.pos.lng + 2)
+    );
+
+    map.fitBounds(bounds);
+
+  }, [item]);
+
+
+  return null;
+}
 const SetMapBounds = () => {
   const map = useMap();
 
@@ -138,7 +170,7 @@ const MapCluserGroup = React.memo(({ selectedId, animItems }: { selectedId: stri
     <MarkerClusterGroup ref={markerClusterRef} removeOutsideVisibleBounds={true}>
       {animItems.map((item) => {
         return (
-          <CustomMarker selected={item.youtubeId === selectedId } key={`${item.author}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
+          <CustomMarker selected={item.youtubeId === selectedId} key={`${item.author}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
             <Popup closeButton={false} minWidth={ANIM_WIDTH} maxWidth={ANIM_WIDTH} maxHeight={ANIM_HEIGHT}>
               <div style={{ width: ANIM_WIDTH, height: ANIM_HEIGHT, overflow: "hidden", borderRadius: 5 }}>
                 <AnimPlayerPopUp animItem={item} />
