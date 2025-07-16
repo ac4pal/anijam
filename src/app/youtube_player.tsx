@@ -49,7 +49,6 @@ AnimPlayerPopUp.displayName = "Anim Player Popup"
 
 
 const AnimPlayer = React.memo((props: AnimPlayerProps) => {
-    console.log(`https://www.youtube.com/watch?v=${props.animItem.youtubeId}`)
     return <ReactPlayer src={`https://www.youtube.com/watch?v=${props.animItem.youtubeId}`} width={ANIM_WIDTH} height={ANIM_HEIGHT} />;
 })
 

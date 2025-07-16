@@ -24,10 +24,11 @@ export interface MapProps {
   pageWidth: number,
   pageHeight: number,
   showTable: boolean,
+  selectedId: string,
 }
 
 export default function Map(props: MapProps) {
-  return (<MapComponent showTable={props.showTable} animItems={props.animItems} pageWidth={props.pageWidth} pageHeight={props.pageHeight} />)
+  return (<MapComponent selectedId={props.selectedId} showTable={props.showTable} animItems={props.animItems} pageWidth={props.pageWidth} pageHeight={props.pageHeight} />)
 }
 
 
@@ -41,7 +42,7 @@ const MapComponent = React.memo((props: MapProps) => {
       minZoom={ZOOM}
       maxZoom={9}
       scrollWheelZoom={true}
-      style={{ width: props.showTable ? "60%" : "100%", height: "100vh" }}
+      style={{ width: props.showTable ? "65%" : "100%", height: "100vh" }}
     >
 
       <TileLayer
@@ -54,7 +55,7 @@ const MapComponent = React.memo((props: MapProps) => {
         url="https://tiles.stadiamaps.com/tiles/stamen_terrain_labels/{z}/{x}/{y}.png?api_key=7efc90e5-1fef-4c34-baaf-9a6c4035d667"
       />
       <SetMapBounds />
-      <MapCluserGroup animItems={props.animItems} />
+      <MapCluserGroup selectedId={props.selectedId} animItems={props.animItems} />
       <ResetButton />
 
     </MapContainer>
@@ -114,7 +115,7 @@ const SetMapBounds = () => {
   return null;
 };
 
-const MapCluserGroup = React.memo(({ animItems }: { animItems: AnimItem[] }) => {
+const MapCluserGroup = React.memo(({ selectedId, animItems }: { selectedId: string, animItems: AnimItem[] }) => {
   const markerClusterRef = React.useRef<typeof MarkerClusterGroup | null>(null);
 
   const map = useMap();
@@ -137,7 +138,7 @@ const MapCluserGroup = React.memo(({ animItems }: { animItems: AnimItem[] }) => 
     <MarkerClusterGroup ref={markerClusterRef} removeOutsideVisibleBounds={true}>
       {animItems.map((item) => {
         return (
-          <CustomMarker key={`${item.author}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
+          <CustomMarker selected={item.youtubeId === selectedId } key={`${item.author}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
             <Popup closeButton={false} minWidth={ANIM_WIDTH} maxWidth={ANIM_WIDTH} maxHeight={ANIM_HEIGHT}>
               <div style={{ width: ANIM_WIDTH, height: ANIM_HEIGHT, overflow: "hidden", borderRadius: 5 }}>
                 <AnimPlayerPopUp animItem={item} />

@@ -7,6 +7,7 @@ export enum DIMENSIONS {
 
 export type AnimItem = {
     pos: { lat: number, lng: number }
+    posString: string,
     author: string,
     dateAdded: Date,
     youtubeId: string,
@@ -18,6 +19,7 @@ export function fetchAnimItems(): AnimItem[] {
     return [
         {
             pos: { lat: 53.1424, lng: -7.6921 },
+            posString: "Dublin",
             title: "Light in the Darkness",
             author: "Emlyn Boyle",
             dateAdded: new Date(2025, 7, 13),
@@ -25,6 +27,7 @@ export function fetchAnimItems(): AnimItem[] {
         },
         {
             pos: { lat: 50.8798, lng: 4.7005 },
+            posString: "Belguim",
             title: "Bloom",
             author: "Affie De Cooman",
             dateAdded: new Date(2025, 7, 13),
@@ -32,6 +35,7 @@ export function fetchAnimItems(): AnimItem[] {
         },
         {
             pos: { lat: 37.5079, lng: 15.0830 },
+            posString: "Cantina, Italy",
             title: "Give Peace a Chance",
             author: "Donana Napoli",
             youtubeId: "6Pq-oRP-bJs",
@@ -39,6 +43,7 @@ export function fetchAnimItems(): AnimItem[] {
         },
         {
             pos: { lat: 46.5653, lng: -66.4619 },
+            posString: "Canada",
             title: "Surveilance",
             author: "Brandon Hicks",
             dateAdded: new Date(2025, 7, 13),
@@ -46,6 +51,7 @@ export function fetchAnimItems(): AnimItem[] {
         },
         {
             pos: { lat: 39.0742, lng: 21.8243 },
+            posString: "Greece",
             author: "Konstantinos Kyriakou",
             dateAdded: new Date(2025, 7, 13),
             youtubeId: "PSrN99wuSgU",
@@ -53,6 +59,7 @@ export function fetchAnimItems(): AnimItem[] {
         },
         {
             pos: { lat: 29.749907, lng: -95.358421 },
+            posString: "Houston, Texas",
             author: "Felipe Sanchez",
             dateAdded: new Date(2025, 7, 13),
             youtubeId: "qMfRjaARVp4",

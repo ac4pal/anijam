@@ -46,17 +46,17 @@ export default function Home() {
   }, [])
 
 
-
-  const animItems = React.useMemo(() => fetchAnimItems(), [/* your dependencies */]);
+  const [selectedId, setSelectedId] = React.useState("");
+  const animItems = React.useMemo(() => fetchAnimItems(), []);
 
   return (
     <main className={styles.mainClass}>
       {showTable &&
-        <AnimTable animItems={animItems} />
+        <AnimTable animItems={animItems} selectedId={selectedId} setSelectedId={setSelectedId} />
       }
 
       {dimensionsSet.current === true &&
-        <LazyMap animItems={animItems} pageWidth={width} pageHeight={height} />
+        <LazyMap selectedId={selectedId} showTable={showTable} animItems={animItems} pageWidth={width} pageHeight={height} />
       }
 
     </main>
