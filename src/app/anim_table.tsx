@@ -13,7 +13,7 @@ const formatDate = (date: Date) => {
 
 function sortItemsByDate(items: AnimItem[]) {
     return items.sort((it1, it2) => {
-        return it1.dateAdded.getTime() - it2.dateAdded.getTime();
+        return it2.dateAdded.getTime() - it1.dateAdded.getTime();
     })
 }
 
