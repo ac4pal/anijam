@@ -84,15 +84,6 @@ export function fetchAnimItems(): AnimItem[] {
 
         },
         {
-            title: "SPINNING DREAMS",
-            author: "Tasneem Agha",
-            posString: "Gaza, Palestine",
-            pos: { lat: 31.50161, lng: 34.46672 },
-            dateAdded: new Date(2025, 6, 16),
-            youtubeId: "bc0HcnXMkxQ",
-            shorts: false,
-        },
-        {
             title: "WHERE THE OWL APPEARS",
             author: "Shorouk Allam",
             posString: "ASSIUT GOVERNORATE, EGYPT",
