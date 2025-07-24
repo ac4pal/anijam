@@ -42,6 +42,7 @@ export const AnimTable = React.memo(({ animItems, selectedId, setSelectedId }: {
     React.useEffect(() => {
     }, sortedAnimItems)
 
+    console.log(sortedAnimItems.length)
 
     return <div className={styles.animTable}>
         <table>
