@@ -54,7 +54,6 @@
   width: 100%;
   height: 100%;
   position: relative
-
 }
 
 .playerOverlay {
@@ -62,7 +61,7 @@
   bottom: 0;
   z-index: 1;
   height: 50px;
-  box-sizing:border-box;
+  box-sizing: border-box;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -76,4 +75,30 @@
 
 .author {
   font-family: "Raleway";
+}
+
+.header {
+  position: absoulte;
+  z-index: 99;
+  background: #ec3647;
+  width: 100%;
+  height: 60px;
+}
+
+.mainContent {
+  width: 100%;
+  height: 100%;
+}
+
+.headerImgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.headerImg {
+  max-width: 100%;
+  max-height: 40px;
 }
