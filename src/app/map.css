@@ -4,15 +4,16 @@
 }
 
 .leaflet-popup-content {
+    width: 300px !important;
     margin: 0 !important;
 }
 
 .leaflet-popup-content-wrapper {
-    padding: 10px !important;
+    padding: 0px !important;
 }
 
 .leaflet-marker-pane {
-  z-index: 600 !important;
+    z-index: 600 !important;
 }
 
 .leaflet-popup-scrolled {
@@ -64,4 +65,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.popupContainer {
+    width: 300px;
+    overflow: hidden;
+    border-radius: 5px;
+
+}
+
+.popupContainerMeta {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.metaInfoContainer {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: "'Raleway'"
+}
+
+.authorInfo {
+    font-size: 12pt;
+    font-weight: 600;
+    font-size: LARGER;
+    font-family: "Raleway";
+}
+
+.locationInfo {
+    color: #5f5f5f;
+    font-size: small;
+    font-family: 'Raleway';
+    font-weight: 500;
 }

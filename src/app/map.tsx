@@ -171,10 +171,8 @@ const MapCluserGroup = React.memo(({ selectedId, animItems }: { selectedId: stri
       {animItems.map((item) => {
         return (
           <CustomMarker selected={item.youtubeId === selectedId} key={`${item.author}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
-            <Popup closeButton={false} minWidth={ANIM_WIDTH} maxWidth={ANIM_WIDTH} maxHeight={ANIM_HEIGHT}>
-              <div style={{ width: ANIM_WIDTH, height: ANIM_HEIGHT, overflow: "hidden", borderRadius: 5 }}>
-                <AnimPlayerPopUp animItem={item} />
-              </div>
+            <Popup closeButton={false} minWidth={ANIM_WIDTH} maxWidth={ANIM_WIDTH} >
+              <CustomPopup item={item} />
             </Popup>
           </CustomMarker>)
       })}
@@ -183,3 +181,17 @@ const MapCluserGroup = React.memo(({ selectedId, animItems }: { selectedId: stri
 })
 
 MapCluserGroup.displayName = "MapCluserGroup"
+
+const CustomPopup = React.memo(({item} : {item: AnimItem}) => {
+
+
+  return <div className="popupContainer">
+    <AnimPlayerPopUp animItem={item} />
+    <div className="metaInfoContainer">
+      <div className="authorInfo">{item.title} - {item.author}</div>
+      <div className="locationInfo">{item.posString}</div>
+    </div>
+  </div>
+})
+
+CustomPopup.displayName = "CustomPopup"

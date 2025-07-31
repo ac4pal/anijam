@@ -27,18 +27,11 @@ export const AnimPlayerPopUp = React.memo((props: AnimPlayerPopUpProps) => {
     return (
 
         <div style={{ position: "relative", width: ANIM_WIDTH, height: ANIM_HEIGHT }}>
-            {props.animItem.youtubeId.length === 0 &&
-                <div className={styles.playerOverlay}>
-                    <div className={styles.title}>{props.animItem.title}</div>
-                    <div className={styles.author}>{props.animItem.author}</div>
-                </div>
-            }
             <div className={styles.playerContent} style={{ width: ANIM_WIDTH, height: ANIM_HEIGHT }}>
-
                 {props.animItem.youtubeId.length > 0 &&
                     <AnimPlayer animItem={props.animItem} onReady={onReady} />
                 }
-                <LoadingState fullScreen={false} />
+
             </div>
         </div>
     )
