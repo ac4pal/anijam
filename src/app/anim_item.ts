@@ -381,7 +381,7 @@ export function fetchAnimItems(): AnimItem[] {
             shorts: false,
         },
         {
-            title: "WE ARE THE SEEDS", author: "Nour Khamis", posString: "LONDON", pos: {lat: 51.5074, lng: -0.1278}, dateAdded: new Date(2025, 6, 29),
+            title: "WE ARE THE SEEDS", author: "Nour Khamis", posString: "LONDON", pos: { lat: 51.5074, lng: -0.1278 }, dateAdded: new Date(2025, 6, 29),
             youtubeId: "Ni9f_ZZBd6c",
             shorts: false
         },
@@ -391,7 +391,7 @@ export function fetchAnimItems(): AnimItem[] {
             shorts: false
         },
         {
-            title: "NOW", author: "Asta Azopardi", posString: "LONDON", pos: {lat: 51.5074, lng: -0.1278}, dateAdded: new Date(2025, 6, 29),
+            title: "NOW", author: "Asta Azopardi", posString: "LONDON", pos: { lat: 51.5074, lng: -0.1278 }, dateAdded: new Date(2025, 6, 29),
             youtubeId: "UTlcoH9LjYU",
             shorts: false
         },
@@ -416,7 +416,7 @@ export function fetchAnimItems(): AnimItem[] {
             shorts: false
         },
         {
-            title: "SENDING LOVE", author: "Deanna Morse", posString: "Junction City", pos: { lat:44.2193, lng: -123.2048 }, dateAdded: new Date(2025, 6, 29),
+            title: "SENDING LOVE", author: "Deanna Morse", posString: "Junction City", pos: { lat: 44.2193, lng: -123.2048 }, dateAdded: new Date(2025, 6, 29),
             youtubeId: "Ji9YRNNHi4E",
             shorts: false
         },
@@ -451,7 +451,7 @@ export function fetchAnimItems(): AnimItem[] {
             shorts: false
         },
         {
-            title: "FREE AS THE BIRDS", author: "Rachel McBride", posString: "Alness", pos: { lat:  57.683, lng: -4.250  }, dateAdded: new Date(2025, 6, 29),
+            title: "FREE AS THE BIRDS", author: "Rachel McBride", posString: "Alness", pos: { lat: 57.683, lng: -4.250 }, dateAdded: new Date(2025, 6, 29),
             youtubeId: "wkdRx1j5zck",
             shorts: false
         },
@@ -501,9 +501,324 @@ export function fetchAnimItems(): AnimItem[] {
             shorts: false
         },
         {
-            title: "DEAR CHILDREN OF GAZA", author: "Tony Gammidge", posString: "Brighton",  pos: { lat: 50.82838, lng: -0.13947 } ,dateAdded: new Date(2025, 6, 29),
+            title: "DEAR CHILDREN OF GAZA", author: "Tony Gammidge", posString: "Brighton", pos: { lat: 50.82838, lng: -0.13947 }, dateAdded: new Date(2025, 6, 29),
             youtubeId: "PWi6xVPHTsM",
             shorts: false
+        },
+        {
+            title: "KITE CIRCUS DRONE",
+            author: "Rachel Dring",
+            posString: "Hackney",
+            pos: { lat: 51.545, lng: -0.055 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "k-Q4AZ0iibY",
+            shorts: false
+        },
+        {
+            title: "GAZA FILM KIDS",
+            author: "Sam Fell",
+            posString: "London",
+            pos: { lat: 51.5074, lng: -0.1278 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "9-S6Num04ak",
+            shorts: false
+        },
+        {
+            title: "SEEDS OF PEACE",
+            author: "Geoffrey Beatty",
+            posString: "Philadelphia",
+            pos: { lat: 39.9526, lng: -75.1652 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "cHhz1fnGnDc",
+            shorts: false
+        },
+        {
+            title: "POPPY",
+            author: "Anne McCall",
+            posString: "Austin",
+            pos: { lat: 30.2672, lng: -97.7431 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "kwMGmLf7w-Q",
+            shorts: false
+        },
+        {
+            title: "DESERT ROSE",
+            author: "Bonobithi Biswas",
+            posString: "Montrouge",
+            pos: { lat: 48.8166, lng: 2.3136 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "Xkrblg5InDA",
+            shorts: false
+        },
+        {
+            title: "THREE SCENES FROM GAZA",
+            author: "Claudia Munksgaard-Palmqvist",
+            posString: "Copenhagen",
+            pos: { lat: 55.6761, lng: 12.5683 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "I9BDgwuevnc",
+            shorts: false
+        },
+        {
+            title: "THEIR SKIES CRY BUT DREAMS STILL RISE",
+            author: "Salma Lrhayyate",
+            posString: "Brussels",
+            pos: { lat: 50.85045, lng: 4.34878 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "Bkcz7qYluMo",
+            shorts: false
+        },
+        {
+            title: "DON-KEY",
+            author: "ERICK CUEVAS",
+            posString: "L’Aquila",
+            pos: { lat: 42.3506, lng: 13.3995 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "fWLhJHYy6Gs",
+            shorts: false
+        },
+        {
+            title: "WHEN BUTTERFLIES ARE SUBJECTED TO WIND",
+            author: "Hannaneh Vahedi",
+            posString: "Tehran",
+            pos: { lat: 35.6892, lng: 51.389 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "OolXjYsQXuk",
+            shorts: false
+        },
+        {
+            title: "MORAL COMPASS OF THE WORLD",
+            author: "Melinda Mouzannar",
+            posString: "Berlin",
+            pos: { lat: 52.52, lng: 13.4050 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "8MP2MEN7xWs",
+            shorts: false
+        },
+        {
+            title: "SILHOUETTE",
+            author: "Maliheh Gholamzadeh",
+            posString: "Birmingham",
+            pos: { lat: 52.4862, lng: -1.8904 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "yrajlz3BF44",
+            shorts: false
+        },
+        {
+            title: "Watermelon and Dandelion",
+            author: "Sam Chou",
+            posString: "Toronto",
+            pos: { lat: 43.6511, lng: -79.3839 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "P8qw3Nxsp0E",
+            shorts: false
+        },
+        {
+            title: "LOVE TO GAZA",
+            author: "victoria lungu",
+            posString: "Leeds",
+            pos: { lat: 53.8008, lng: -1.5491 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "VeL9wkFuh0k",
+            shorts: false
+        },
+        {
+            title: "WHAT, WHEN?",
+            author: "Eleni Aerts",
+            posString: "Ieper",
+            pos: { lat: 50.8512, lng: 2.8857 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "GXf81DYoau4",
+            shorts: false
+        },
+        {
+            title: "FOR THE CHILDREN WITH LOVE",
+            author: "Shreyasi Das",
+            posString: "Montreal",
+            pos: { lat: 45.5019, lng: -73.5674 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "0BADhN0TEtk",
+            shorts: false
+        },
+        {
+            title: "WE ARE FAMILIES",
+            author: "Billy Mpetha",
+            posString: "Stockport",
+            pos: { lat: 53.4106, lng: -2.1575 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "PFB02C3Ru24",
+            shorts: false
+        },
+        {
+            title: "DECOLONIZED DANCE",
+            author: "Zeinab Araghinia",
+            posString: "Babol",
+            pos: { lat: 36.5519, lng: 52.6789 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "rgErQqD9E0A",
+            shorts: false
+        },
+        {
+            title: "THE WALK",
+            author: "Xavier Aguayo",
+            posString: "Quito",
+            pos: { lat: -0.1807, lng: -78.4678 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "oLV9hF_zpxo",
+            shorts: false
+        },
+        {
+            title: "TAKE HANDS",
+            author: "Diek Grobler",
+            posString: "Pretoria",
+            pos: { lat: -25.7479, lng: 28.2293 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "FgKN3T42Y4A",
+            shorts: false
+        },
+        {
+            title: "PRESSED FLOWERS",
+            author: "Elizabeth Hobbs",
+            posString: "LONDON",
+            pos: { lat: 51.5074, lng: -0.1278 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "0I8Hd9UGmzg",
+            shorts: false
+        },
+        {
+            title: "FLYING FREE",
+            author: "Christina Booth",
+            posString: "Bristol",
+            pos: { lat: 51.4545, lng: -2.5879 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "yvsM1VbVs6k",
+            shorts: false
+        },
+        {
+            title: "HEAVEN",
+            author: "Alheli Ochoa",
+            posString: "Azcapotzalco",
+            pos: { lat: 19.485, lng: -99.175 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "Z4LNxrVBl6o",
+            shorts: false
+        },
+        {
+            title: "ARI",
+            author: "Rodrigo Del Pino",
+            posString: "Buenos Aires",
+            pos: { lat: -34.6037, lng: -58.3816 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "JReNR4-amI8",
+            shorts: false
+        },
+        {
+            title: "HUG OF PEACE (ABRAZODEPAZ)",
+            author: "Rulo Mileg",
+            posString: "Guatemala City",
+            pos: { lat: 14.6349, lng: -90.5069 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "q5McefhwQwE",
+            shorts: false
+        },
+        {
+            title: "THE POEM",
+            author: "Drew de Silva",
+            posString: "Colombo",
+            pos: { lat: 6.9271, lng: 79.8612 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "pmXHr5Orby0",
+            shorts: false
+        },
+        {
+            title: "TO GAZA WITH LOVE",
+            author: "Gareth Bennett",
+            posString: "Newport",
+            pos: { lat: 51.5842, lng: -2.9977 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "SYgmG6q92DY",
+            shorts: false
+        },
+        {
+            title: "SEED WALKER",
+            author: "Sara Forero, María José Ramírez, Joe Vásquezl, Mallivi Melo Rey",
+            posString: "Bogotá",
+            pos: { lat: 4.711, lng: -74.0721 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "86fzgJqk1ok",
+            shorts: false
+        },
+        {
+            title: "SEED OF PEACE",
+            author: "Fergy Bustacara, Mallivi Melo Rey, Cielo Forero",
+            posString: "Bogotá",
+            pos: { lat: 4.711, lng: -74.0721 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "vyUfZvowGA8",
+            shorts: false
+        },
+        {
+            title: "LUZ",
+            author: "Ben Fox",
+            posString: "London",
+            pos: { lat: 51.5074, lng: -0.1278 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "twH59oMNRl8",
+            shorts: false
+        },
+        {
+            title: "RED WAVE",
+            author: "Esther Vital",
+            posString: "Zaragoza",
+            pos: { lat: 41.6488, lng: -0.8891 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "MtNobDIp10A",
+            shorts: false
+        },
+        {
+            title: "LOVE TO GAZA",
+            author: "Brenda Goodchild",
+            posString: "Reading",
+            pos: { lat: 51.4543, lng: -0.9781 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "1iUVehppg_E",
+            shorts: false
+        },
+        {
+            title: "ANIMONTAGE",
+            author: "Alissar Kobeissi",
+            posString: "Vancouver",
+            pos: { lat: 49.2827, lng: -123.1207 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "Uvl2CYfQT08",
+            shorts: true
+        },
+        {
+            title: "FREE PALESTINE",
+            author: "Navaporn Boonmasiri",
+            posString: "Vancouver",
+            pos: { lat: 49.2827, lng: -123.1207 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "MKy6jzaBEac",
+            shorts: false
+        },
+        {
+            title: "BACK HOME",
+            author: "Chiara Carnovale",
+            posString: "Paola",
+            pos: { lat: 35.8787, lng: 14.5165 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "912Yfo-eI8Y",
+            shorts: false
+        },
+        {
+            title: "PEACE FOR THE CHILDREN OF PALESTINE",
+            author: "Maria Tsakiri",
+            posString: "Edinburgh",
+            pos: { lat: 55.9533, lng: -3.1883 },
+            dateAdded: new Date(2025, 6, 31),
+            youtubeId: "_gdv-2G7M4s",
+            shorts: true
         },
     ]
 }
