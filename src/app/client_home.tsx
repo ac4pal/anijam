@@ -57,15 +57,9 @@ export default function ClientHome() {
 
 
       {dimensionsSet.current === true &&
-        <div className={styles.mainContent}>
-          {/* <div className={styles.header}>
-            <div className={styles.headerImgContainer}>
-              <img className={styles.headerImg} src="/header.png" />
-            </div>
 
-          </div> */}
           <LazyMap selectedId={selectedId} showTable={showTable} animItems={animItems} pageWidth={width} pageHeight={height} />
-       </div>
+
       }
 
     </main>

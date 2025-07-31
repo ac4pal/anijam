@@ -3,7 +3,6 @@ import React from "react";
 import ReactPlayer from 'react-player'
 
 import { AnimItem } from './anim_item';
-import { LoadingState } from './loader';
 export const ANIM_WIDTH = 300;
 export const ANIM_HEIGHT = ANIM_WIDTH * 9 / 16;
 import styles from "./page.module.css";
@@ -26,12 +25,11 @@ export const AnimPlayerPopUp = React.memo((props: AnimPlayerPopUpProps) => {
 
     return (
 
-        <div style={{ position: "relative", width: ANIM_WIDTH, height: ANIM_HEIGHT }}>
-            <div className={styles.playerContent} style={{ width: ANIM_WIDTH, height: ANIM_HEIGHT }}>
+        <div style={{ position: "relative", width: ANIM_WIDTH, height: props.animItem.shorts ?  ANIM_WIDTH * 16/9 : ANIM_HEIGHT}}>
+            <div className={styles.playerContent} style={{ width: ANIM_WIDTH, height:  props.animItem.shorts ? ANIM_WIDTH * 16/9 : ANIM_HEIGHT }}>
                 {props.animItem.youtubeId.length > 0 &&
                     <AnimPlayer animItem={props.animItem} onReady={onReady} />
                 }
-
             </div>
         </div>
     )
@@ -42,7 +40,7 @@ AnimPlayerPopUp.displayName = "Anim Player Popup"
 
 
 const AnimPlayer = React.memo((props: AnimPlayerProps) => {
-    return <ReactPlayer src={`https://www.youtube.com/watch?v=${props.animItem.youtubeId}`} width={ANIM_WIDTH} height={ANIM_HEIGHT} />;
+    return <ReactPlayer src={`https://www.youtube.com/watch?v=${props.animItem.youtubeId}`} width={ANIM_WIDTH} height={props.animItem.shorts ? ANIM_WIDTH * 16/9 : ANIM_HEIGHT} />;
 })
 
 AnimPlayer.displayName = "Anim Player"
