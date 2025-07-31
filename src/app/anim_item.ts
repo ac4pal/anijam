@@ -806,7 +806,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "BACK HOME",
             author: "Chiara Carnovale",
             posString: "Paola",
-            pos: { lat: 35.8787, lng: 14.5165 },
+            pos: { lat: 39.3667, lng: 16.0333},
             dateAdded: new Date(2025, 6, 31),
             youtubeId: "912Yfo-eI8Y",
             shorts: false
