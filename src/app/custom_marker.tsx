@@ -8,12 +8,14 @@ interface CustomMarkerProps {
   position: L.LatLngExpression;
   children: React.ReactNode;
   selected: boolean,
+  setSelected: () => void,
+  unselect: () => void,
 }
 
 const customIcon = L.icon({
-  iconUrl: "./pin.svg",
-  iconSize: [30, 30],
-  iconAnchor: [15, 15],
+  iconUrl: "./pin.png",
+  iconSize: [40, 40],
+  iconAnchor: [20, 20],
 });
 
 const selectedIcon = L.icon({
@@ -23,8 +25,9 @@ const selectedIcon = L.icon({
 });
 
 export const CustomMarker = React.memo(({ selected, position, children }: CustomMarkerProps) => {
+// eventHandlers={{ click: setSelected }}
   return (
-    <Marker position={position} icon={selected? selectedIcon : customIcon} >
+    <Marker  position={position} icon={selected? selectedIcon : customIcon} >
       {children}
     </Marker>
   );

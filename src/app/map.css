@@ -22,32 +22,63 @@
     border-top: none !important;
 }
 
-.marker-cluster-small {
-    background: rgba(255, 0, 0, 0.5) !important;
-}
-
 .marker-cluster {
     z-index: 600 !important;
 }
 
+
+.marker-cluster-small {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: white !important;
+    background-size: 60px 60px;
+    border: 2px #499c1e solid;
+    font: bold 1em "Raleway" !important;
+}
+
 .marker-cluster-small div {
-    background: rgba(255, 0, 0, 0.5) !important;
+    background-color: transparent !important;
+    background-size: 60px 60px;
+    margin: 0 !important;
+    background: #ec3647 !important;
+    font: bold 1em "Raleway" !important;
 }
 
 .marker-cluster-medium {
-    background: rgba(255, 0, 0, 0.5) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: white !important;
+    background-size: 60px 60px;
+    border: 2px #499c1e solid;
+    font: bold 1em "Raleway" !important;
 }
 
 .marker-cluster-medium div {
-    background: rgba(255, 0, 0, 0.5) !important;
+    background-color: transparent !important;
+    background-size: 60px 60px;
+    margin: 0 !important;
+    background: #ec3647 !important;
+    font: bold 1em "Raleway" !important;
 }
 
 .marker-cluster-large {
-    background: rgba(255, 0, 0, 0.5) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: white !important;
+    background-size: 60px 60px;
+    border: 2px #499c1e solid;
+    font: bold 1em "Raleway" !important;
 }
 
 .marker-cluster-large div {
-    background: rgba(255, 0, 0, 0.5) !important;
+    background-color: transparent !important;
+    background-size: 60px 60px;
+    margin: 0 !important;
+    background: #ec3647 !important;
+    font: bold 1em "Raleway" !important;
 }
 
 .resetButtonContainer {

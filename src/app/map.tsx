@@ -13,7 +13,7 @@ import { CustomMarker } from "./custom_marker";
 import { AnimItem } from "./anim_item";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 
-import { AnimPlayerPopUp, ANIM_HEIGHT, ANIM_WIDTH } from './youtube_player';
+import { AnimPlayerPopUp, ANIM_WIDTH } from './youtube_player';
 
 const ZOOM = 2;
 const DEFAULT_CENTER = { lat: 0, lng: 0 };
@@ -25,10 +25,11 @@ export interface MapProps {
   pageHeight: number,
   showTable: boolean,
   selectedId: string,
+  setSelectedId: (id: string) => void,
 }
 
 export default function Map(props: MapProps) {
-  return (<MapComponent selectedId={props.selectedId} showTable={props.showTable} animItems={props.animItems} pageWidth={props.pageWidth} pageHeight={props.pageHeight} />)
+  return (<MapComponent setSelectedId={props.setSelectedId} selectedId={props.selectedId} showTable={props.showTable} animItems={props.animItems} pageWidth={props.pageWidth} pageHeight={props.pageHeight} />)
 }
 
 
@@ -65,7 +66,7 @@ const MapComponent = React.memo((props: MapProps) => {
       />
       <SetMapBounds />
       <ZoomToMarker item={selectedMarker()} />
-      <MapCluserGroup selectedId={props.selectedId} animItems={props.animItems} />
+      <MapCluserGroup setSelectedId={props.setSelectedId} selectedId={props.selectedId} animItems={props.animItems} />
       <ResetButton />
 
     </MapContainer>
@@ -147,7 +148,7 @@ const SetMapBounds = () => {
   return null;
 };
 
-const MapCluserGroup = React.memo(({ selectedId, animItems }: { selectedId: string, animItems: AnimItem[] }) => {
+const MapCluserGroup = React.memo(({ setSelectedId, selectedId, animItems }: { setSelectedId: (id: string) => void, selectedId: string, animItems: AnimItem[] }) => {
   const markerClusterRef = React.useRef<typeof MarkerClusterGroup | null>(null);
 
   const map = useMap();
@@ -166,11 +167,15 @@ const MapCluserGroup = React.memo(({ selectedId, animItems }: { selectedId: stri
 
 
 
+
   return (
     <MarkerClusterGroup ref={markerClusterRef} removeOutsideVisibleBounds={true}>
       {animItems.map((item) => {
+        
         return (
-          <CustomMarker selected={item.youtubeId === selectedId} key={`${item.author}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
+          <CustomMarker setSelected={() => {
+              setSelectedId(item.youtubeId)
+          }} unselect={() => {setSelectedId("")}} selected={item.youtubeId === selectedId} key={`${item.author}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
             <Popup closeButton={false} minWidth={ANIM_WIDTH} maxWidth={ANIM_WIDTH} >
               <CustomPopup item={item} />
             </Popup>

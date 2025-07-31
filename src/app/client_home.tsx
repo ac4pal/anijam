@@ -57,9 +57,7 @@ export default function ClientHome() {
 
 
       {dimensionsSet.current === true &&
-
-          <LazyMap selectedId={selectedId} showTable={showTable} animItems={animItems} pageWidth={width} pageHeight={height} />
-
+          <LazyMap setSelectedId={(id: string) => {setSelectedId(id)}} selectedId={selectedId} showTable={showTable} animItems={animItems} pageWidth={width} pageHeight={height} />
       }
 
     </main>
