@@ -1,0 +1,64 @@
+.formOuter {
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
+    border: none; */
+    height: 45px;
+}
+
+.container {
+    transform: translate(60px, 15px);
+    position: absolute;
+    width: 376px;
+    z-index: 6000;
+    background: white;
+    border-radius: 25px;
+    height: 45px;
+}
+
+.searchBarInput {
+    font-family: "Raleway";
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
+    border: none;
+    width: 100%;
+    border-radius: 12px;
+    height: 100%;
+    outline: none;
+}
+
+.searchBarInputWithResults {
+    font-family: "Raleway";
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
+    border: none;
+    width: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    height: 100%;
+    outline: none;
+}
+
+.searchBarInput:focus {
+    outline: none;
+}
+
+.resultsContainer {
+    box-sizing: border-box;
+    padding: 8px;
+    background: white;
+    overflow: scroll;
+    max-height: 80vh;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
+}
+
+.result {
+    font-family: "Raleway";
+    padding: 7.5px 5px;
+    cursor: pointer;
+    font-size: smaller;
+}
+
+.result:hover {
+    background: rgba(214, 213, 213, 0.4);
+}

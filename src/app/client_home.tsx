@@ -7,6 +7,7 @@ import dynamic from "next/dynamic"
 import { fetchAnimItems } from "./anim_item";
 import { LoadingState } from "./loader";
 import { AnimTable } from "./anim_table";
+import SearchBar from "./search_bar";
 const LazyMap = dynamic(() => import("./map"), {
   ssr: false,
   loading: () => <LoadingState fullScreen={true} />,
@@ -57,7 +58,10 @@ export default function ClientHome() {
 
 
       {dimensionsSet.current === true &&
+      <div className={styles.contentContainer}>
+        <SearchBar items={animItems} setSelectedId={(id: string) => {setSelectedId(id)}}  />
           <LazyMap setSelectedId={(id: string) => {setSelectedId(id)}} selectedId={selectedId} showTable={showTable} animItems={animItems} pageWidth={width} pageHeight={height} />
+     </div>
       }
 
     </main>
