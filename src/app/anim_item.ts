@@ -382,7 +382,7 @@ export function fetchAnimItems(): AnimItem[] {
             shorts: false,
         },
         {
-            title: "WE ARE THE SEEDS", author: "Nour Khamis", posString: "LONDON", pos: { lat: 51.5074, lng: -0.1278 }, dateAdded: new Date(2025, 6, 29),
+            title: "WE ARE THE SEEDS", author: "Nour Khamis", posString: "LONDON", pos: { lat: 51.5074, lng: -0.1280 }, dateAdded: new Date(2025, 6, 29),
             youtubeId: "Ni9f_ZZBd6c",
             shorts: false
         },
@@ -392,7 +392,7 @@ export function fetchAnimItems(): AnimItem[] {
             shorts: false
         },
         {
-            title: "NOW", author: "Asta Azopardi", posString: "LONDON", pos: { lat: 51.5074, lng: -0.1278 }, dateAdded: new Date(2025, 6, 29),
+            title: "NOW", author: "Asta Azopardi", posString: "LONDON", pos: { lat: 51.5074, lng: -0.1282 }, dateAdded: new Date(2025, 6, 29),
             youtubeId: "UTlcoH9LjYU",
             shorts: false
         },
@@ -519,7 +519,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "GAZA FILM KIDS",
             author: "Sam Fell",
             posString: "London",
-            pos: { lat: 51.5074, lng: -0.1278 },
+            pos: { lat: 51.5074, lng: -0.1279 },
             dateAdded: new Date(2025, 6, 31),
             youtubeId: "9-S6Num04ak",
             shorts: false
@@ -681,7 +681,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "PRESSED FLOWERS",
             author: "Elizabeth Hobbs",
             posString: "LONDON",
-            pos: { lat: 51.5074, lng: -0.1278 },
+            pos: { lat: 51.5074, lng: -0.1274 },
             dateAdded: new Date(2025, 6, 31),
             youtubeId: "0I8Hd9UGmzg",
             shorts: false
@@ -762,7 +762,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "LUZ",
             author: "Ben Fox",
             posString: "London",
-            pos: { lat: 51.5074, lng: -0.1278 },
+            pos: { lat: 51.5074, lng: -0.1277 },
             dateAdded: new Date(2025, 6, 31),
             youtubeId: "twH59oMNRl8",
             shorts: false

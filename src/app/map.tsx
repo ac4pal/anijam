@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { useMap, MapContainer, TileLayer, Popup } from 'react-leaflet'
+import { useMap, MapContainer, TileLayer, Popup, ZoomControl } from 'react-leaflet'
 
 import L from 'leaflet';
 import './map.css';
@@ -27,14 +27,21 @@ export interface MapProps {
   showTable: boolean,
   selectedItem: AnimItem | null,
   setSelectedItem: (item: AnimItem) => void,
+  mapReady: () => void
 }
 
 export default function Map(props: MapProps) {
-  return (<MapComponent setSelectedItem={props.setSelectedItem} selectedItem={props.selectedItem} showTable={props.showTable} animItems={props.animItems} pageWidth={props.pageWidth} pageHeight={props.pageHeight} />)
+  return (<MapComponent mapReady={props.mapReady} setSelectedItem={props.setSelectedItem} selectedItem={props.selectedItem} showTable={props.showTable} animItems={props.animItems} pageWidth={props.pageWidth} pageHeight={props.pageHeight} />)
 }
 
 
 const MapComponent = React.memo((props: MapProps) => {
+
+  React.useEffect(() => {
+
+    props.mapReady()
+  }, [])
+
 
   function selectedMarker(): AnimItem | null {
     const items = props.animItems.filter(item => item === props.selectedItem)
@@ -52,6 +59,7 @@ const MapComponent = React.memo((props: MapProps) => {
       zoom={ZOOM}
       minZoom={ZOOM}
       maxZoom={9}
+      zoomControl={false}
       scrollWheelZoom={true}
       style={{ width: props.showTable ? "65%" : "100%", height: "100vh" }}
     >
@@ -68,6 +76,8 @@ const MapComponent = React.memo((props: MapProps) => {
       <SetMapBounds />
       <ZoomToMarker item={selectedMarker()} />
       <MapCluserGroup setSelectedItem={props.setSelectedItem} selectedItem={props.selectedItem} animItems={props.animItems} />
+      <ZoomControl position="bottomright" />
+
       <ResetButton />
 
     </MapContainer>
@@ -95,7 +105,7 @@ const ResetButton = React.memo(() => {
 
   if (ready) {
     return (
-      <div className="leaflet-top leaflet-left" style={{ top: 70 }}>
+      <div className="leaflet-bottom leaflet-right" style={{ bottom: 86 }}>
         <div className="leaflet-control leaflet-bar resetButtonContainer">
           <button className="resetButton" onClick={onClick}>
             <img style={{ width: "80%", height: "80%" }} src={isProd ? "/anijam/reset.svg" : "/reset.svg"} alt="reset" />
@@ -163,7 +173,7 @@ const MapCluserGroup = React.memo(({ setSelectedItem, selectedItem, animItems }:
           return;
         }
         const clusters = markerClusterRef.current.getLayers();
-        
+
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const targetMarker = clusters.find((layer: any) => {
 

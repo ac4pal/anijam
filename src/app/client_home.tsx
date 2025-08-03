@@ -22,6 +22,7 @@ export default function ClientHome() {
 
   const searchParams = useSearchParams()
   const showTable = searchParams.get('table') === "true"
+  const [mapLoaded, setMapLoaded] = React.useState(false);
 
   React.useEffect(() => {
 
@@ -58,8 +59,10 @@ export default function ClientHome() {
 
       {dimensionsSet.current === true &&
         <div className={styles.contentContainer}>
-          <SearchBar items={animItems} setSelectedItem={(item: AnimItem) => { setSelectedItem(item) }} />
-          <LazyMap setSelectedItem={(item: AnimItem) => { setSelectedItem(item) }} selectedItem={selectedItem} showTable={showTable} animItems={animItems} pageWidth={width} pageHeight={height} />
+          {mapLoaded &&
+            <SearchBar isMobile={width < height} items={animItems} setSelectedItem={(item: AnimItem) => { setSelectedItem(item) }} />
+          }
+          <LazyMap mapReady={() => { setMapLoaded(true) }} setSelectedItem={(item: AnimItem) => { setSelectedItem(item) }} selectedItem={selectedItem} showTable={showTable} animItems={animItems} pageWidth={width} pageHeight={height} />
         </div>
       }
 
