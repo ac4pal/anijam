@@ -138,7 +138,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "A TINY MESSAGE OF SOLIDARITY",
         },
         {
-            pos: { lat: 19.43260, lng: -99.13320 },
+            pos: { lat: 19.43260, lng: -99.13319 },
             posString: "Mexico, Mexico City",
             title: "HANDELA BY THE BEACH",
             author: "CUAUHTEMOC PADILLAC",
@@ -240,7 +240,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "FROM THE ASHES",
             author: "Jamil Lahham / Dan Franke",
             posString: "Montreal/ Stuttgart",
-            pos: { lat: 45.5017, lng: -73.5673 },
+            pos: { lat: 45.5017, lng: -73.5672 },
             dateAdded: new Date(2025, 6, 22),
             youtubeId: "7NJ_NL_mHR0",
             shorts: false,
@@ -285,7 +285,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "HEARTS 4 GAZA",
             author: "Bella Woodfield",
             posString: "Cardiff, UK",
-            pos: { lat: 51.4816, lng: -3.1791 },
+            pos: { lat: 51.4816, lng: -3.1790 },
             dateAdded: new Date(2025, 6, 22),
             youtubeId: "7iTly7Dlwgo",
             shorts: false,
@@ -376,7 +376,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "FAMINE",
             author: "Rehab Ayman",
             posString: "Cairo",
-            pos: { lat: 30.0444, lng: 31.2357 },
+            pos: { lat: 30.0444, lng: 31.2356 },
             dateAdded: new Date(2025, 6, 23),
             youtubeId: "5kbX5PfMO0Q",
             shorts: false,
@@ -467,7 +467,7 @@ export function fetchAnimItems(): AnimItem[] {
             shorts: false
         },
         {
-            title: "BOOK FOR PALESTINE", author: "Sara/ Michel/María/ Deiverly Buitrago/Buitrago/Bermúdez/Cordones", posString: "Bogotá", pos: { lat: 4.711, lng: -74.0721 }, dateAdded: new Date(2025, 6, 29),
+            title: "BOOK FOR PALESTINE", author: "Sara Buitrago, Michel Buitrago, María Bermúdez, Deiverly Cordones", posString: "Bogotá", pos: { lat: 4.711, lng: -74.0721 }, dateAdded: new Date(2025, 6, 29),
             youtubeId: "84aclt0dwzU",
             shorts: false
         },
@@ -502,7 +502,7 @@ export function fetchAnimItems(): AnimItem[] {
             shorts: false
         },
         {
-            title: "DEAR CHILDREN OF GAZA", author: "Tony Gammidge", posString: "Brighton", pos: { lat: 50.82838, lng: -0.13947 }, dateAdded: new Date(2025, 6, 29),
+            title: "DEAR CHILDREN OF GAZA", author: "Tony Gammidge", posString: "Brighton", pos: { lat: 50.82838, lng: -0.13946 }, dateAdded: new Date(2025, 6, 29),
             youtubeId: "PWi6xVPHTsM",
             shorts: false
         },
@@ -582,7 +582,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "WHEN BUTTERFLIES ARE SUBJECTED TO WIND",
             author: "Hannaneh Vahedi",
             posString: "Tehran",
-            pos: { lat: 35.6892, lng: 51.389 },
+            pos: { lat: 35.6892, lng: 51.3891 },
             dateAdded: new Date(2025, 6, 31),
             youtubeId: "OolXjYsQXuk",
             shorts: false
@@ -627,7 +627,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "FOR THE CHILDREN WITH LOVE",
             author: "Shreyasi Das",
             posString: "Montreal",
-            pos: { lat: 45.5019, lng: -73.5674 },
+            pos: { lat: 45.5019, lng: -73.5672 },
             dateAdded: new Date(2025, 6, 31),
             youtubeId: "0BADhN0TEtk",
             shorts: false
@@ -690,7 +690,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "HEAVEN",
             author: "Alheli Ochoa",
             posString: "Azcapotzalco",
-            pos: { lat: 19.485, lng: -99.175 },
+            pos: { lat: 19.485, lng: -99.172 },
             dateAdded: new Date(2025, 6, 31),
             youtubeId: "Z4LNxrVBl6o",
             shorts: false
@@ -735,7 +735,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "SEED WALKER",
             author: "Sara Forero, María José Ramírez, Joe Vásquezl, Mallivi Melo Rey",
             posString: "Bogotá",
-            pos: { lat: 4.711, lng: -74.0721 },
+            pos: { lat: 4.711, lng: -74.0720 },
             dateAdded: new Date(2025, 6, 31),
             youtubeId: "86fzgJqk1ok",
             shorts: false
@@ -744,7 +744,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "SEED OF PEACE",
             author: "Fergy Bustacara, Mallivi Melo Rey, Cielo Forero",
             posString: "Bogotá",
-            pos: { lat: 4.711, lng: -74.0721 },
+            pos: { lat: 4.711, lng: -74.0719 },
             dateAdded: new Date(2025, 6, 31),
             youtubeId: "vyUfZvowGA8",
             shorts: false
@@ -780,7 +780,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "ANIMONTAGE",
             author: "Alissar Kobeissi",
             posString: "Vancouver",
-            pos: { lat: 49.2827, lng: -123.1207 },
+            pos: { lat: 49.2827, lng: -123.1205 },
             dateAdded: new Date(2025, 6, 31),
             youtubeId: "Uvl2CYfQT08",
             shorts: true
@@ -789,7 +789,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "FREE PALESTINE",
             author: "Navaporn Boonmasiri",
             posString: "Vancouver",
-            pos: { lat: 49.2827, lng: -123.1207 },
+            pos: { lat: 49.2827, lng: -123.1206 },
             dateAdded: new Date(2025, 6, 31),
             youtubeId: "MKy6jzaBEac",
             shorts: false

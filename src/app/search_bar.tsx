@@ -2,14 +2,10 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { AnimItem } from "./anim_item";
 import styles from "./search_bar.module.css";
 
-const SearchBar = ({ items, setSelectedItem }: { items: AnimItem[], setSelectedItem: (item: AnimItem) => void }) => {
+const SearchBar = ({ items, setSelectedItem, isMobile }: { items: AnimItem[], setSelectedItem: (item: AnimItem) => void, isMobile: boolean }) => {
     const [searchTerm, setSearchTerm] = useState('')
     const [searchResults, setSearchResults] = useState<AnimItem[]>([])
-    const [isMobile, setIsMobile] = React.useState(false)
 
-    React.useEffect(() => {
-        setIsMobile(window.matchMedia('(max-width: 768px)').matches);
-    }, [])
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function debounce<T extends (...args: any[]) => void>(func: T, delay: number): (...args: Parameters<T>) => void {
@@ -47,10 +43,8 @@ const SearchBar = ({ items, setSelectedItem }: { items: AnimItem[], setSelectedI
 
     const selectItem = (result: AnimItem) => {
         setSelectedItem(result);
-      
         setSearchResults([]);
-          setSearchTerm(`${result.title} by ${result.author}, ${result.posString}`)
-        
+        setSearchTerm(`${result.title} by ${result.author}, ${result.posString}`)
     }
 
     return (<div className={isMobile ? styles.containerMobile : styles.container}>
