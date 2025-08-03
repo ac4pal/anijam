@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation'
 
 import React from "react";
 import dynamic from "next/dynamic"
-import { fetchAnimItems } from "./anim_item";
+import { AnimItem, fetchAnimItems } from "./anim_item";
 import { LoadingState } from "./loader";
 import { AnimTable } from "./anim_table";
 import SearchBar from "./search_bar";
@@ -24,7 +24,6 @@ export default function ClientHome() {
   const showTable = searchParams.get('table') === "true"
 
   React.useEffect(() => {
-
 
     const handleResize = () => {
       setWidth(window.innerWidth);
@@ -47,21 +46,21 @@ export default function ClientHome() {
   }, [])
 
 
-  const [selectedId, setSelectedId] = React.useState("");
+  const [selectedItem, setSelectedItem] = React.useState<AnimItem | null>(null);
   const animItems = React.useMemo(() => fetchAnimItems(), []);
 
   return (
     <main className={styles.mainClass}>
       {showTable &&
-        <AnimTable animItems={animItems} selectedId={selectedId} setSelectedId={setSelectedId} />
+        <AnimTable animItems={animItems} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
       }
 
 
       {dimensionsSet.current === true &&
-      <div className={styles.contentContainer}>
-        <SearchBar items={animItems} setSelectedId={(id: string) => {setSelectedId(id)}}  />
-          <LazyMap setSelectedId={(id: string) => {setSelectedId(id)}} selectedId={selectedId} showTable={showTable} animItems={animItems} pageWidth={width} pageHeight={height} />
-     </div>
+        <div className={styles.contentContainer}>
+          <SearchBar items={animItems} setSelectedItem={(item: AnimItem) => { setSelectedItem(item) }} />
+          <LazyMap setSelectedItem={(item: AnimItem) => { setSelectedItem(item) }} selectedItem={selectedItem} showTable={showTable} animItems={animItems} pageWidth={width} pageHeight={height} />
+        </div>
       }
 
     </main>

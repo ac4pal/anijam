@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect, ChangeEventHandler } from 'rea
 import { AnimItem } from "./anim_item";
 import styles from "./search_bar.module.css";
 
-const SearchBar = ({ items, setSelectedId }: { items: AnimItem[], setSelectedId: (id: string) => void }) => {
+const SearchBar = ({ items, setSelectedItem }: { items: AnimItem[], setSelectedItem: (item: AnimItem) => void }) => {
     const [searchTerm, setSearchTerm] = useState('')
     const [searchResults, setSearchResults] = useState<AnimItem[]>([])
 
@@ -40,7 +40,7 @@ const SearchBar = ({ items, setSelectedId }: { items: AnimItem[], setSelectedId:
     }
 
     const selectItem = (result: AnimItem) => {
-        setSelectedId(result.youtubeId);
+        setSelectedItem(result);
       
         setSearchResults([]);
           setSearchTerm(`${result.title} by ${result.author}, ${result.posString}`)

@@ -35,7 +35,7 @@ function sortItemsByAuthor(items: AnimItem[]): AnimItem[] {
     })
 }
 
-export const AnimTable = React.memo(({ animItems, selectedId, setSelectedId }: { animItems: AnimItem[], selectedId: string, setSelectedId: (id: string) => void }) => {
+export const AnimTable = React.memo(({ animItems, selectedItem, setSelectedItem }: { animItems: AnimItem[], selectedItem: AnimItem | null, setSelectedItem: (item: AnimItem) => void }) => {
 
     const [sortedAnimItems, setSortedItems] = React.useState(animItems);
 
@@ -77,7 +77,7 @@ export const AnimTable = React.memo(({ animItems, selectedId, setSelectedId }: {
 
                 </tr>
                 {sortedAnimItems.map((item) => {
-                    return (<tr onClick={() => { setSelectedId(item.youtubeId) }} className={selectedId === item.youtubeId ? styles.trSelected : styles.tr} key={item.youtubeId}>
+                    return (<tr onClick={() => { setSelectedItem(item) }} className={selectedItem === item ? styles.trSelected : styles.tr} key={item.youtubeId}>
                         <td className={styles.td}>
 
                             {formatDate(item.dateAdded)}

@@ -4,14 +4,15 @@ import React from "react";
 
 import { useMap, MapContainer, TileLayer, Popup } from 'react-leaflet'
 
-import L from 'leaflet';
+import L, { Marker as LeafletMarker } from 'leaflet';
 import './map.css';
 import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/styles'
 
-import { CustomMarker } from "./custom_marker";
+import { CustomMarker, CustomMarkerType } from "./custom_marker";
 import { AnimItem } from "./anim_item";
 import MarkerClusterGroup from "react-leaflet-markercluster";
+import { MarkerClusterGroup as LeafletMarkerClusterGroup } from 'leaflet';
 
 import { AnimPlayerPopUp, ANIM_WIDTH } from './youtube_player';
 
@@ -24,19 +25,19 @@ export interface MapProps {
   pageWidth: number,
   pageHeight: number,
   showTable: boolean,
-  selectedId: string,
-  setSelectedId: (id: string) => void,
+  selectedItem: AnimItem | null,
+  setSelectedItem: (item: AnimItem) => void,
 }
 
 export default function Map(props: MapProps) {
-  return (<MapComponent setSelectedId={props.setSelectedId} selectedId={props.selectedId} showTable={props.showTable} animItems={props.animItems} pageWidth={props.pageWidth} pageHeight={props.pageHeight} />)
+  return (<MapComponent setSelectedItem={props.setSelectedItem} selectedItem={props.selectedItem} showTable={props.showTable} animItems={props.animItems} pageWidth={props.pageWidth} pageHeight={props.pageHeight} />)
 }
 
 
 const MapComponent = React.memo((props: MapProps) => {
 
   function selectedMarker(): AnimItem | null {
-    const items = props.animItems.filter(item => item.youtubeId === props.selectedId)
+    const items = props.animItems.filter(item => item === props.selectedItem)
     if (items.length > 0) {
       return items[0]
     }
@@ -66,7 +67,7 @@ const MapComponent = React.memo((props: MapProps) => {
       />
       <SetMapBounds />
       <ZoomToMarker item={selectedMarker()} />
-      <MapCluserGroup setSelectedId={props.setSelectedId} selectedId={props.selectedId} animItems={props.animItems} />
+      <MapCluserGroup setSelectedItem={props.setSelectedItem} selectedItem={props.selectedItem} animItems={props.animItems} />
       <ResetButton />
 
     </MapContainer>
@@ -121,8 +122,8 @@ const ZoomToMarker = ({ item }: { item: AnimItem | null }) => {
       return
     }
     const bounds = L.latLngBounds(
-      L.latLng(item.pos.lat - 2, item.pos.lng - 2),
-      L.latLng(item.pos.lat + 2, item.pos.lng + 2)
+      L.latLng(item.pos.lat - 0.1, item.pos.lng - 0.1),
+      L.latLng(item.pos.lat + 0.1, item.pos.lng + 0.1)
     );
 
     map.fitBounds(bounds);
@@ -148,34 +149,49 @@ const SetMapBounds = () => {
   return null;
 };
 
-const MapCluserGroup = React.memo(({ setSelectedId, selectedId, animItems }: { setSelectedId: (id: string) => void, selectedId: string, animItems: AnimItem[] }) => {
-  const markerClusterRef = React.useRef<typeof MarkerClusterGroup | null>(null);
+const MapCluserGroup = React.memo(({ setSelectedItem, selectedItem, animItems }: { setSelectedItem: (item: AnimItem) => void, selectedItem: AnimItem | null, animItems: AnimItem[] }) => {
+  const markerClusterRef = React.useRef<LeafletMarkerClusterGroup>(null);
 
-  const map = useMap();
 
   React.useEffect(() => {
 
-    const handleMoveEnd = () => {
-      markerClusterRef.current?.refreshClusters();
-    };
-
-    map.on('moveend', handleMoveEnd);
-    return () => {
-      map.off('moveend', handleMoveEnd);
-    };
-  }, [map])
+    if (markerClusterRef.current) {
 
 
+      setTimeout(() => {
+        if (!markerClusterRef.current) {
+          return;
+        }
+        const clusters = markerClusterRef.current.getLayers();
+        const targetMarker = clusters.find((layer: any) => {
+
+          if (selectedItem) {
+            const layerLatLng = layer.getLatLng()
+            return layerLatLng.lat === selectedItem.pos.lat && layerLatLng.lng === selectedItem.pos.lng
+
+          }
+        });
+
+        if (targetMarker && targetMarker instanceof L.Marker) {
+          markerClusterRef.current.zoomToShowLayer(targetMarker, () => {
+            targetMarker.openPopup();
+          });
+        }
+
+      }, 100)
+    }
+
+
+  }, [selectedItem]);
 
 
   return (
     <MarkerClusterGroup ref={markerClusterRef} removeOutsideVisibleBounds={true}>
       {animItems.map((item) => {
-        
         return (
           <CustomMarker setSelected={() => {
-              setSelectedId(item.youtubeId)
-          }} unselect={() => {setSelectedId("")}} selected={item.youtubeId === selectedId} key={`${item.author}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
+            setSelectedItem(item)
+          }} selected={item === selectedItem} key={`${item.author}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
             <Popup closeButton={false} minWidth={ANIM_WIDTH} maxWidth={ANIM_WIDTH} >
               <CustomPopup item={item} />
             </Popup>
@@ -187,7 +203,7 @@ const MapCluserGroup = React.memo(({ setSelectedId, selectedId, animItems }: { s
 
 MapCluserGroup.displayName = "MapCluserGroup"
 
-const CustomPopup = React.memo(({item} : {item: AnimItem}) => {
+const CustomPopup = React.memo(({ item }: { item: AnimItem }) => {
 
 
   return <div className="popupContainer">

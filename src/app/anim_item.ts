@@ -290,15 +290,7 @@ export function fetchAnimItems(): AnimItem[] {
             youtubeId: "7iTly7Dlwgo",
             shorts: false,
         },
-        {
-            title: "KEFFIYEH",
-            author: "Nomi Lefort",
-            posString: "London",
-            pos: { lat: 51.5072, lng: -0.1276 },
-            dateAdded: new Date(2025, 6, 23),
-            youtubeId: "UwJMOxayzbM",
-            shorts: false,
-        },
+
         {
             title: "DEAR FRIEND",
             author: "Marcia Rojas",
@@ -314,6 +306,15 @@ export function fetchAnimItems(): AnimItem[] {
             pos: { lat: 51.5072, lng: -0.1276 },
             dateAdded: new Date(2025, 6, 23),
             youtubeId: "6W6jB15PW7U",
+            shorts: false,
+        },
+        {
+            title: "KEFFIYEH",
+            author: "Nomi Lefort",
+            posString: "London",
+            pos: { lat: 51.5072, lng: -0.1278 },
+            dateAdded: new Date(2025, 6, 23),
+            youtubeId: "UwJMOxayzbM",
             shorts: false,
         }, {
             title: "WE COME TOGETHER",
@@ -806,7 +807,7 @@ export function fetchAnimItems(): AnimItem[] {
             title: "BACK HOME",
             author: "Chiara Carnovale",
             posString: "Paola",
-            pos: { lat: 39.3667, lng: 16.0333},
+            pos: { lat: 39.3667, lng: 16.0333 },
             dateAdded: new Date(2025, 6, 31),
             youtubeId: "912Yfo-eI8Y",
             shorts: false

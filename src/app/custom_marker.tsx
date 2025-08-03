@@ -1,15 +1,14 @@
 // 'use-client'
 import React from "react";
-import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { Marker } from "react-leaflet";
+import { Marker } from 'react-leaflet';
+import L, { Marker as LeafletMarker } from 'leaflet';
 
 interface CustomMarkerProps {
   position: L.LatLngExpression;
   children: React.ReactNode;
   selected: boolean,
   setSelected: () => void,
-  unselect: () => void,
 }
 
 const customIcon = L.icon({
@@ -18,16 +17,26 @@ const customIcon = L.icon({
   iconAnchor: [20, 20],
 });
 
-const selectedIcon = L.icon({
-  iconUrl: "./selectedPin.svg",
-  iconSize: [30, 30],
-  iconAnchor: [15, 15],
-});
+
+export type CustomMarkerType = typeof CustomMarker;
+
 
 export const CustomMarker = React.memo(({ selected, position, children }: CustomMarkerProps) => {
-// eventHandlers={{ click: setSelected }}
+  const markerRef = React.useRef<LeafletMarker | null>(null);
+
+  React.useEffect(() => {
+    if (selected) {
+
+      setTimeout(() => {
+        markerRef.current?.openPopup();
+      }, 200)
+
+    }
+  }, [selected])
+
+
   return (
-    <Marker  position={position} icon={selected? selectedIcon : customIcon} >
+    <Marker ref={markerRef} position={position} icon={customIcon} >
       {children}
     </Marker>
   );
