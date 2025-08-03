@@ -588,15 +588,6 @@ export function fetchAnimItems(): AnimItem[] {
             shorts: false
         },
         {
-            title: "MORAL COMPASS OF THE WORLD",
-            author: "Melinda Mouzannar",
-            posString: "Berlin",
-            pos: { lat: 52.52, lng: 13.4050 },
-            dateAdded: new Date(2025, 6, 31),
-            youtubeId: "8MP2MEN7xWs",
-            shorts: false
-        },
-        {
             title: "SILHOUETTE",
             author: "Maliheh Gholamzadeh",
             posString: "Birmingham",
