@@ -61,7 +61,7 @@ const MapComponent = React.memo((props: MapProps) => {
       maxZoom={9}
       zoomControl={false}
       scrollWheelZoom={true}
-      style={{ width: props.showTable ? "65%" : "100%", height: "100vh" }}
+      style={{ width: "100%", height: "100vh" }}
     >
 
       <TileLayer
