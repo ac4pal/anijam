@@ -105,7 +105,7 @@ const ResetButton = React.memo(() => {
 
   if (ready) {
     return (
-      <div className="leaflet-bottom leaflet-right" style={{ bottom: 86 }}>
+      <div className="leaflet-bottom leaflet-left">
         <div className="leaflet-control leaflet-bar resetButtonContainer">
           <button className="resetButton" onClick={onClick}>
             <img style={{ width: "80%", height: "80%" }} src={isProd ? "/anijam/reset.svg" : "/reset.svg"} alt="reset" />
