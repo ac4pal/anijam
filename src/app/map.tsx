@@ -4,12 +4,12 @@ import React from "react";
 
 import { useMap, MapContainer, TileLayer, Popup } from 'react-leaflet'
 
-import L, { Marker as LeafletMarker } from 'leaflet';
+import L from 'leaflet';
 import './map.css';
 import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/styles'
 
-import { CustomMarker, CustomMarkerType } from "./custom_marker";
+import { CustomMarker } from "./custom_marker";
 import { AnimItem } from "./anim_item";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { MarkerClusterGroup as LeafletMarkerClusterGroup } from 'leaflet';
@@ -163,6 +163,8 @@ const MapCluserGroup = React.memo(({ setSelectedItem, selectedItem, animItems }:
           return;
         }
         const clusters = markerClusterRef.current.getLayers();
+        
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const targetMarker = clusters.find((layer: any) => {
 
           if (selectedItem) {

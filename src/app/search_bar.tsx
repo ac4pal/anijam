@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, ChangeEventHandler } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { AnimItem } from "./anim_item";
 import styles from "./search_bar.module.css";
 
@@ -10,6 +10,8 @@ const SearchBar = ({ items, setSelectedItem }: { items: AnimItem[], setSelectedI
     React.useEffect(() => {
         setIsMobile(window.matchMedia('(max-width: 768px)').matches);
     }, [])
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function debounce<T extends (...args: any[]) => void>(func: T, delay: number): (...args: Parameters<T>) => void {
         let timeoutId: ReturnType<typeof setTimeout>;
         return (...args) => {
