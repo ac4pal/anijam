@@ -164,10 +164,7 @@ const MapCluserGroup = React.memo(({ setSelectedItem, selectedItem, animItems }:
 
 
   React.useEffect(() => {
-
     if (markerClusterRef.current) {
-
-
       setTimeout(() => {
         if (!markerClusterRef.current) {
           return;
@@ -176,11 +173,9 @@ const MapCluserGroup = React.memo(({ setSelectedItem, selectedItem, animItems }:
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const targetMarker = clusters.find((layer: any) => {
-
           if (selectedItem) {
             const layerLatLng = layer.getLatLng()
             return layerLatLng.lat === selectedItem.pos.lat && layerLatLng.lng === selectedItem.pos.lng
-
           }
         });
 
@@ -216,8 +211,6 @@ const MapCluserGroup = React.memo(({ setSelectedItem, selectedItem, animItems }:
 MapCluserGroup.displayName = "MapCluserGroup"
 
 const CustomPopup = React.memo(({ item }: { item: AnimItem }) => {
-
-
   return <div className="popupContainer">
     <AnimPlayerPopUp animItem={item} />
     <div className="metaInfoContainer">

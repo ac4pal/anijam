@@ -35,27 +35,7 @@ function sortItemsByAuthor(items: AnimItem[]): AnimItem[] {
     })
 }
 
-function groupByLatLng(items: AnimItem[]): Record<string, AnimItem[]> {
-  const grouped = new Map<string, AnimItem[]>();
 
-  for (const item of items) {
-    const key = `${item.pos.lat},${item.pos.lng}`;
-
-
-    if (!grouped.has(key)) {
-      grouped.set(key, []);
-    }
-    else {
-        console.log(item.posString)
-            // console.log(item.pos.lat, item.pos.lng)
-    }
-
-    grouped.get(key)!.push(item);
-  }
-
-  // Convert Map to object if needed
-  return Object.fromEntries(grouped);
-}
 
 export const AnimTable = React.memo(({ animItems, selectedItem, setSelectedItem }: { animItems: AnimItem[], selectedItem: AnimItem | null, setSelectedItem: (item: AnimItem) => void }) => {
 
@@ -64,9 +44,7 @@ export const AnimTable = React.memo(({ animItems, selectedItem, setSelectedItem 
 
     React.useEffect(() => {
     }, sortedAnimItems)
-    console.log("++++++++++")
 
-    const grouped = groupByLatLng(sortedAnimItems)
  
 
     return <div className={styles.animTable}>
