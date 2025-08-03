@@ -32,10 +32,12 @@
     border-radius: 8px;
     height: 100%;
     outline: none;
+    font-size: 16px;
 }
 
 .searchBarInputWithResults {
     font-family: "Raleway";
+    font-size: 16px;
     padding: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
     border: none;
@@ -65,7 +67,7 @@
     font-family: "Raleway";
     padding: 7.5px 5px;
     cursor: pointer;
-    font-size: smaller;
+    font-size: 16px;
 }
 
 .result:hover {
