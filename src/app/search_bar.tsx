@@ -5,7 +5,11 @@ import styles from "./search_bar.module.css";
 const SearchBar = ({ items, setSelectedItem }: { items: AnimItem[], setSelectedItem: (item: AnimItem) => void }) => {
     const [searchTerm, setSearchTerm] = useState('')
     const [searchResults, setSearchResults] = useState<AnimItem[]>([])
+    const [isMobile, setIsMobile] = React.useState(false)
 
+    React.useEffect(() => {
+        setIsMobile(window.matchMedia('(max-width: 768px)').matches);
+    }, [])
     function debounce<T extends (...args: any[]) => void>(func: T, delay: number): (...args: Parameters<T>) => void {
         let timeoutId: ReturnType<typeof setTimeout>;
         return (...args) => {
@@ -47,14 +51,14 @@ const SearchBar = ({ items, setSelectedItem }: { items: AnimItem[], setSelectedI
         
     }
 
-    return (<div className={styles.container}>
+    return (<div className={isMobile ? styles.containerMobile : styles.container}>
         <form
             onSubmit={(e) => e.preventDefault()}
             className={styles.formOuter}
         >
             <input
                 id="animjamSearch"
-                type="text"
+                type="search"
                 value={searchTerm}
                 onChange={(e) => handleInputChange(e.target.value)}
                 className={searchResults.length > 0 ? styles.searchBarInputWithResults : styles.searchBarInput}
