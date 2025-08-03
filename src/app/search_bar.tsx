@@ -27,7 +27,10 @@ const SearchBar = ({ items, setSelectedItem, isMobile }: { items: AnimItem[], se
                     item.posString.toLowerCase().includes(lowercaseTerm) ||
                     item.author.toLowerCase().includes(lowercaseTerm) ||
                     item.title.toLowerCase().includes(lowercaseTerm))
-                setSearchResults(results)
+
+                    setSearchResults(results)
+                
+              
             }
         }, 0),
         [],
@@ -44,7 +47,7 @@ const SearchBar = ({ items, setSelectedItem, isMobile }: { items: AnimItem[], se
     const selectItem = (result: AnimItem) => {
         setSelectedItem(result);
         setSearchResults([]);
-        setSearchTerm(`${result.title} by ${result.author}, ${result.posString}`)
+        // setSearchTerm(`${result.title} by ${result.author}, ${result.posString}`)
     }
 
     return (<div className={isMobile ? styles.containerMobile : styles.container}>
