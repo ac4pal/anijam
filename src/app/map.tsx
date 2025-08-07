@@ -26,12 +26,13 @@ export interface MapProps {
   pageHeight: number,
   showTable: boolean,
   selectedItem: AnimItem | null,
+  isDarkMode: boolean,
   setSelectedItem: (item: AnimItem) => void,
   mapReady: () => void
 }
 
 export default function Map(props: MapProps) {
-  return (<MapComponent mapReady={props.mapReady} setSelectedItem={props.setSelectedItem} selectedItem={props.selectedItem} showTable={props.showTable} animItems={props.animItems} pageWidth={props.pageWidth} pageHeight={props.pageHeight} />)
+  return (<MapComponent isDarkMode={props.isDarkMode} mapReady={props.mapReady} setSelectedItem={props.setSelectedItem} selectedItem={props.selectedItem} showTable={props.showTable} animItems={props.animItems} pageWidth={props.pageWidth} pageHeight={props.pageHeight} />)
 }
 
 
@@ -78,7 +79,7 @@ const MapComponent = React.memo((props: MapProps) => {
       <MapCluserGroup setSelectedItem={props.setSelectedItem} selectedItem={props.selectedItem} animItems={props.animItems} />
       <ZoomControl position="bottomright" />
 
-      <ResetButton />
+      <ResetButton isDarkMode={props.isDarkMode} />
 
     </MapContainer>
   )
@@ -86,7 +87,7 @@ const MapComponent = React.memo((props: MapProps) => {
 
 MapComponent.displayName = "Map Component"
 
-const ResetButton = React.memo(() => {
+const ResetButton = React.memo(({ isDarkMode }: { isDarkMode: boolean }) => {
   const map = useMap()
 
 
@@ -101,14 +102,23 @@ const ResetButton = React.memo(() => {
     map.setView(DEFAULT_CENTER, ZOOM)
   }, [map])
 
-  const isProd = process.env.NODE_ENV === 'production';
 
+  function src(): string {
+    const isProd = process.env.NODE_ENV === 'production';
+    if (isProd) {
+      return isDarkMode ? "/anijam/reset_dark.svg" : "/anijam/reset.svg";
+    }
+    else {
+      return isDarkMode ? "/reset_dark.svg" : "/reset.svg";
+    }
+  }
+  
   if (ready) {
     return (
       <div className="leaflet-bottom leaflet-left">
         <div className="leaflet-control leaflet-bar resetButtonContainer">
           <button className="resetButton" onClick={onClick}>
-            <img style={{ width: "80%", height: "80%" }} src={isProd ? "/anijam/reset.svg" : "/reset.svg"} alt="reset" />
+            <img style={{ width: "80%", height: "80%" }} src={src()} alt="reset" />
           </button>
         </div>
       </div>

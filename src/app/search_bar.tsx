@@ -28,9 +28,9 @@ const SearchBar = ({ items, setSelectedItem, isMobile }: { items: AnimItem[], se
                     item.author.toLowerCase().includes(lowercaseTerm) ||
                     item.title.toLowerCase().includes(lowercaseTerm))
 
-                    setSearchResults(results)
-                
-              
+                setSearchResults(results)
+
+
             }
         }, 0),
         [],
@@ -67,11 +67,11 @@ const SearchBar = ({ items, setSelectedItem, isMobile }: { items: AnimItem[], se
 
         {searchResults.length > 0 && (
             <div className={styles.resultsContainer}>
-                <ul style={{listStyle: "none"}}>
+                <ul style={{ listStyle: "none" }}>
                     {searchResults.map((result) => (
-                        <li key={result.youtubeId} className={styles.result} onClick={() => { selectItem(result)}}>
+                        <li key={result.youtubeId} className={styles.result} onClick={() => { selectItem(result) }}>
                             <div>
-                                <span style={{fontWeight: 500}}>{result.title}</span> by {result.author}, {result.posString}
+                                <span style={{ fontWeight: 500 }}>{result.title}</span> by {result.author}, {result.posString}
                             </div>
                         </li>
                     ))}

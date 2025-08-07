@@ -42,10 +42,12 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
     border: none;
     width: 100%;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
     height: 100%;
     outline: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .searchBarInput:focus {
@@ -61,6 +63,13 @@
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
+}
+
+@media (prefers-color-scheme: dark) {
+    .resultsContainer {
+        color: white;
+        background: #1E1E1E;
+    }
 }
 
 .result {

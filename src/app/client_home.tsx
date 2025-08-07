@@ -23,7 +23,7 @@ export default function ClientHome() {
   const searchParams = useSearchParams()
   const showTable = searchParams.get('table') === "true"
   const [mapLoaded, setMapLoaded] = React.useState(false);
-
+  const [isDarkMode, setIsDarkMode] = React.useState(false);
   React.useEffect(() => {
 
     const handleResize = () => {
@@ -38,9 +38,18 @@ export default function ClientHome() {
     }
 
 
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDarkMode(mediaQuery.matches);
+
+    const handleDarkModeChange = (e: MediaQueryListEvent) => {
+      setIsDarkMode(e.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleDarkModeChange);
     window.addEventListener('resize', handleResize);
 
     return () => {
+      mediaQuery.removeEventListener('change', handleDarkModeChange);
       window.removeEventListener('resize', handleResize);
     };
 
@@ -62,7 +71,7 @@ export default function ClientHome() {
           {mapLoaded &&
             <SearchBar isMobile={width < height} items={animItems} setSelectedItem={(item: AnimItem) => { setSelectedItem(item) }} />
           }
-          <LazyMap mapReady={() => { setMapLoaded(true) }} setSelectedItem={(item: AnimItem) => { setSelectedItem(item) }} selectedItem={selectedItem} showTable={showTable} animItems={animItems} pageWidth={width} pageHeight={height} />
+          <LazyMap mapReady={() => { setMapLoaded(true) }} setSelectedItem={(item: AnimItem) => { setSelectedItem(item) }} selectedItem={selectedItem} showTable={showTable} animItems={animItems} pageWidth={width} pageHeight={height} isDarkMode={isDarkMode} />
         </div>
       }
 
