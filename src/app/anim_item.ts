@@ -1217,15 +1217,15 @@ export function fetchAnimItems(): AnimItem[] {
             youtubeId: "A6amBWVdz9o",
             shorts: false
         },
-        {
-            title: "IF I MUST DIE",
-            author: "Nuurbin Art",
-            posString: "Oakville",
-            pos: { lat: 43.4675, lng: -79.6877 },
-            dateAdded: new Date(2025, 7, 3),
-            youtubeId: "9UynQEbUs9o",
-            shorts: false
-        },
+        // {
+        //     title: "IF I MUST DIE",
+        //     author: "Nuurbin Art",
+        //     posString: "Oakville",
+        //     pos: { lat: 43.4675, lng: -79.6877 },
+        //     dateAdded: new Date(2025, 7, 3),
+        //     youtubeId: "9UynQEbUs9o",
+        //     shorts: false
+        // },
         {
             title: "IT WILL RETURN AS IT WAS",
             author: "Shroomaster A",
