@@ -135,7 +135,7 @@
 }
 
 .leaflet-bottom {
-    bottom: calc(env(safe-area-inset-bottom, 80px) + 0px) !important;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 80px) !important;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -59,7 +59,7 @@ const MapComponent = React.memo((props: MapProps) => {
       maxBoundsViscosity={1.0}
       zoom={ZOOM}
       minZoom={ZOOM}
-      maxZoom={9}
+      maxZoom={10}
       zoomControl={false}
       scrollWheelZoom={true}
       style={{ width: "100%", height: "100vh" }}
@@ -203,7 +203,11 @@ const MapCluserGroup = React.memo(({ setSelectedItem, selectedItem, animItems }:
 
 
   return (
-    <MarkerClusterGroup ref={markerClusterRef} removeOutsideVisibleBounds={true}>
+    <MarkerClusterGroup 
+      spiderfyOnMaxZoom={true}
+      ref={markerClusterRef} 
+      maxClusterRadius={40}
+      removeOutsideVisibleBounds={true}>
       {animItems.map((item) => {
         return (
           <CustomMarker setSelected={() => {
