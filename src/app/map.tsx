@@ -112,7 +112,7 @@ const ResetButton = React.memo(({ isDarkMode }: { isDarkMode: boolean }) => {
       return isDarkMode ? "/reset_dark.svg" : "/reset.svg";
     }
   }
-  
+
   if (ready) {
     return (
       <div className="leaflet-bottom leaflet-left">
@@ -208,7 +208,7 @@ const MapCluserGroup = React.memo(({ setSelectedItem, selectedItem, animItems }:
         return (
           <CustomMarker setSelected={() => {
             setSelectedItem(item)
-          }} selected={item === selectedItem} key={`${item.author}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
+          }} selected={item === selectedItem} key={`${item.youtubeId}`} position={{ lat: item.pos.lat, lng: item.pos.lng }}>
             <Popup closeButton={false} minWidth={ANIM_WIDTH} maxWidth={ANIM_WIDTH} >
               <CustomPopup item={item} />
             </Popup>

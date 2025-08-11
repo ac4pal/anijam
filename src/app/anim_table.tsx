@@ -36,6 +36,22 @@ function sortItemsByAuthor(items: AnimItem[]): AnimItem[] {
 }
 
 
+// const findDuplicatePositions = (items: AnimItem[]) => {
+//   const seen = new Map<string, AnimItem[]>();
+
+//   items.forEach(item => {
+//     const key = `${item.pos.lat},${item.pos.lng}`;
+//     if (!seen.has(key)) {
+//       seen.set(key, []);
+//     }
+//     seen.get(key)!.push(item);
+//   });
+
+//   // Filter only duplicates (more than 1 item with same lat/lng)
+//   const duplicates = Array.from(seen.values()).filter(group => group.length > 1);
+
+//   return duplicates;
+// };
 
 export const AnimTable = React.memo(({ animItems, selectedItem, setSelectedItem }: { animItems: AnimItem[], selectedItem: AnimItem | null, setSelectedItem: (item: AnimItem) => void }) => {
 
@@ -45,7 +61,6 @@ export const AnimTable = React.memo(({ animItems, selectedItem, setSelectedItem 
     React.useEffect(() => {
     }, sortedAnimItems)
 
- 
 
     return <div className={styles.animTable}>
         <table>
