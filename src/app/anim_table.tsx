@@ -97,7 +97,7 @@ export const AnimTable = React.memo(({ animItems, selectedItem, setSelectedItem 
 
                 </tr>
                 {sortedAnimItems.map((item) => {
-                    return (<tr onClick={() => { setSelectedItem(item) }} className={selectedItem === item ? styles.trSelected : styles.tr} key={item.youtubeId}>
+                    return (<tr onClick={() => { setSelectedItem(item) }} className={selectedItem === item ? styles.trSelected : styles.tr} key={item.id}>
                         <td className={styles.td}>
 
                             {formatDate(item.dateAdded)}
